@@ -111,12 +111,12 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-[100dvh] absolute inset-0">
-      <div className="h-12" /> {/* 状态栏占位 */}
+      <div className="h-[var(--topbar-h)]" />
       <div className="flex-1 overflow-hidden flex flex-col">
         <HistoryCard messages={messages} />
         <InputCard onSend={handleSend} />
       </div>
-      <div className="h-16" /> {/* 导航栏占位 */}
+      <div className="h-[var(--bottombar-h)]" />
     </div>
   );
 };

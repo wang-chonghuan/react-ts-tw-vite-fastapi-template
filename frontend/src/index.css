@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --frame-min-w: 300px;
+  --frame-max-w: 800px;
+  --topbar-h: 4rem;  /* 16px */
+  --bottombar-h: 4rem;  /* 16px */
+}

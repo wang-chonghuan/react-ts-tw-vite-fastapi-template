@@ -1,7 +1,10 @@
 import React from 'react';
 
 const News = () => (
-  <div className="flex-1 overflow-y-auto p-4 bg-gray-100 mt-12 mb-16">
+  <div className="flex-1 overflow-y-auto p-4 bg-gray-100" style={{ 
+    marginTop: 'var(--topbar-h)', 
+    marginBottom: 'var(--bottombar-h)' 
+  }}>
     <div className="bg-white rounded-lg shadow p-4 mb-4">
       <h2 className="text-lg font-semibold mb-2">Welcome</h2>
       <p className="text-gray-600">
