@@ -7,7 +7,7 @@ const BottomBar = () => {
   const currentPath = location.pathname;
 
   return (
-    <div className="flex items-center justify-around" style={{ height: 'var(--bottombar-h)' }}>
+    <div className="flex items-center justify-around h-[var(--bottombar-h)]">
       <button
         onClick={() => navigate('/news')}
         className={`flex flex-col items-center p-2 ${

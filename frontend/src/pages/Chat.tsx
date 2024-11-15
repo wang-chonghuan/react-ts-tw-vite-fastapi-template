@@ -62,14 +62,14 @@ const InputCard = ({ onSend }: { onSend: (text: string) => void }) => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="输入消息..."
+            placeholder="Type a message..."
             className="flex-1 rounded-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500"
           />
           <button
             type="submit"
             className="bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 focus:outline-none"
           >
-            发送
+            Send
           </button>
         </div>
       </form>
@@ -82,7 +82,7 @@ const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "你好！欢迎来到聊天室",
+      text: "Hello! Welcome to the chat room",
       isSelf: false,
       timestamp: new Date()
     }
@@ -101,7 +101,7 @@ const Chat = () => {
     setTimeout(() => {
       const replyMessage: Message = {
         id: messages.length + 2,
-        text: "这是一条自动回复消息",
+        text: "This is an automated reply",
         isSelf: false,
         timestamp: new Date()
       };
@@ -110,7 +110,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[100dvh] absolute inset-0">
+    <div className="flex flex-col h-[100dvh] bg-gray-100">
       <div className="h-[var(--topbar-h)]" />
       <div className="flex-1 overflow-hidden flex flex-col">
         <HistoryCard messages={messages} />
