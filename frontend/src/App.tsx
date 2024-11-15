@@ -1,18 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Frame from './pages/Frame';
-import News from './pages/News';
-import Chat from './pages/Chat';
+import { routes } from './routes/config';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Frame />}>
-          {/* 默认重定向到 news 页面 */}
           <Route index element={<Navigate to="/news" replace />} />
-          {/* 子路由 */}
-          <Route path="news" element={<News />} />
-          <Route path="chat" element={<Chat />} />
+          {routes.map(({ path, component: Component }) => (
+            <Route key={path} path={path.replace('/', '')} element={<Component />} />
+          ))}
         </Route>
       </Routes>
     </BrowserRouter>
