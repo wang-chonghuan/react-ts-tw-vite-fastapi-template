@@ -5,6 +5,16 @@
 :root {
   --frame-min-w: 300px;
   --frame-max-w: 800px;
-  --topbar-h: 4rem;  /* 16px */
-  --bottombar-h: 4rem;  /* 16px */
+  --topbar-h: 3rem;  /* 16px */
+  --bottombar-h: 3rem;  /* 16px */
+}
+
+/* 隐藏滚动条但保持滚动功能 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 适配Firefox */
+* {
+  scrollbar-width: none;
 }
