@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send } from 'lucide-react';
 
+// 定义主题颜色
+const CHAT_COLORS = {
+  background: 'bg-white',
+  userBubble: 'bg-zinc-200 text-zinc-900',
+  aiBubble: 'bg-zinc-100 text-zinc-900',
+} as const;
+
 // 定义消息类型
 interface Message {
   id: number;
@@ -12,15 +19,12 @@ interface Message {
 // 聊天气泡组件
 const ChatBubble = ({ message }: { message: Message }) => (
   <div className={`flex ${message.isSelf ? 'justify-end' : 'justify-start'} mb-4`}>
-    <div className={`max-w-[70%] rounded-2xl px-4 py-2 ${
+    <div className={`max-w-full w-fit rounded-2xl px-4 py-2 ${
       message.isSelf 
-        ? 'bg-blue-500 text-white rounded-br-none' 
-        : 'bg-gray-200 text-gray-800 rounded-bl-none'
+        ? CHAT_COLORS.userBubble + ' rounded-br-none' 
+        : CHAT_COLORS.aiBubble + ' rounded-bl-none'
     }`}>
-      <p>{message.text}</p>
-      <p className={`text-xs mt-1 ${message.isSelf ? 'text-blue-100' : 'text-gray-500'}`}>
-        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-      </p>
+      <p className="break-words">{message.text}</p>
     </div>
   </div>
 );
@@ -111,7 +115,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[100dvh] bg-gray-100">
+    <div className={`flex flex-col h-[100dvh] ${CHAT_COLORS.background}`}>
       <div className="h-[var(--topbar-h)]" />
       <div className="flex-1 overflow-hidden flex flex-col">
         <HistoryCard messages={messages} />
