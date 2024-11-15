@@ -1,5 +1,26 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Newspaper, MessageCircle } from 'lucide-react';
+import { Newspaper, MessageCircle, LucideIcon } from 'lucide-react';
+
+// Define navigation item interface
+interface NavItem {
+  path: string;
+  icon: LucideIcon;
+  label: string;
+}
+
+// Navigation configuration
+const navItems: NavItem[] = [
+  {
+    path: '/news',
+    icon: Newspaper,
+    label: 'News'
+  },
+  {
+    path: '/chat',
+    icon: MessageCircle,
+    label: 'Chat'
+  }
+];
 
 const BottomBar = () => {
   const navigate = useNavigate();
@@ -8,24 +29,20 @@ const BottomBar = () => {
 
   return (
     <div className="flex items-center justify-around h-[var(--bottombar-h)]">
-      <button
-        onClick={() => navigate('/news')}
-        className={`flex flex-col items-center p-2 ${
-          currentPath === '/news' ? 'text-blue-600' : 'text-gray-600'
-        }`}
-      >
-        <Newspaper size={24} />
-        <span className="text-xs mt-1">News</span>
-      </button>
-      <button
-        onClick={() => navigate('/chat')}
-        className={`flex flex-col items-center p-2 ${
-          currentPath === '/chat' ? 'text-blue-600' : 'text-gray-600'
-        }`}
-      >
-        <MessageCircle size={24} />
-        <span className="text-xs mt-1">Chat</span>
-      </button>
+      {navItems.map((item) => (
+        <button
+          key={item.path}
+          onClick={() => navigate(item.path)}
+          className={`flex flex-col items-center p-2 ${
+            currentPath === item.path 
+              ? 'text-black font-bold scale-110' 
+              : 'text-gray-400'
+          }`}
+        >
+          <item.icon size={currentPath === item.path ? 28 : 24} />
+          <span className="text-xs mt-1">{item.label}</span>
+        </button>
+      ))}
     </div>
   );
 };

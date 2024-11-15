@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Send } from 'lucide-react';
 
 // 定义消息类型
 interface Message {
@@ -33,7 +34,7 @@ const HistoryCard = ({ messages }: { messages: Message[] }) => {
   }, [messages]);
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 py-2">
+    <div className="flex-1 overflow-y-auto px-4 pt-4 pb-2">
       {messages.map((message) => (
         <ChatBubble key={message.id} message={message} />
       ))}
@@ -63,13 +64,13 @@ const InputCard = ({ onSend }: { onSend: (text: string) => void }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message..."
-            className="flex-1 rounded-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500"
+            className="flex-1 rounded-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-gray-500"
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 focus:outline-none"
+            className="bg-black text-white rounded-full p-3 hover:bg-gray-800 focus:outline-none"
           >
-            Send
+            <Send size={20} />
           </button>
         </div>
       </form>

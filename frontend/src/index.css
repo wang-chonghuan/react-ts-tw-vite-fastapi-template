@@ -5,8 +5,8 @@
 :root {
   --frame-min-w: 300px;
   --frame-max-w: 800px;
-  --topbar-h: 3rem;  /* 16px */
-  --bottombar-h: 3rem;  /* 16px */
+  --topbar-h: 3rem; 
+  --bottombar-h: 4rem;
 }
 
 /* 隐藏滚动条但保持滚动功能 */
