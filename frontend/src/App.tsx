@@ -1,7 +1,8 @@
-import HealthCheck from './pages/HealthCheck'
+import Frame from "./pages/frame"
+
 
 function App() {
-  return <HealthCheck />
+  return <Frame />
 }
 
 export default App
